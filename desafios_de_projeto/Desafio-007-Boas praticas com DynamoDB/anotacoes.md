@@ -1,0 +1,20 @@
+# Anotações do desafio
+- O DynamoDB é um serviço de banco de dados NoSQL, que permite armazenar e consultar dados em uma tabela, com a possibilidade de criar índices para facilitar a consulta.
+- É gerenciado pela AWS, ou seja, não é necessário gerenciar a infraestrutura, como servidores, por exemplo.
+- Componentes:
+  - Tabelas: é o container de dados, onde são armazenados os itens.
+  - Itens: são os dados armazenados na tabela.
+  - Atributos: são as colunas da tabela.
+  - Chave primária: é o identificador único de cada item na tabela. É composta por uma chave de partição(partition key) e uma chave de ordenação (sort key).
+  - A partition key é usada para distribuir os dados em vários nós (hash interna), e a sort key é usada para ordenar os dados dentro de cada partição, a combinação das duas deve ser única.
+  - Os índices secundários permitem consultar os dados de uma tabela de forma mais eficiente, porém, eles não são atualizados automaticamente, ou seja, é necessário atualizar o índice sempre que um item for atualizado ou removido.
+  - O índice secundário global é um índice que pode ser criado em qualquer tabela, e é composto por uma chave de partição e uma chave de ordenação.
+  - O índice secundário local é um índice que pode ser criado apenas em tabelas que possuem uma chave de partição composta, e é composto por uma chave de ordenação.
+- A leitura e gravação pode ser sob demanda (sem limite) ou provisionada.
+- O DynamoDB não é normalizado, ou seja, não é possível criar relacionamentos entre tabelas.
+- Não possui joins.
+- Pode ter múltiplas entidades em uma tabela, porém, é necessário que todas as entidades tenham a mesma chave primária.
+- Atributos podem ser criados dinamicamente, ou seja, não é necessário definir todos os atributos antes de inserir um item.
+- É recomendado:
+  - Ter acess paterns e regras de negócio bem definidos.
+  - Manter o número de índices secundários o menor possível para evitar o custo de manutenção.
